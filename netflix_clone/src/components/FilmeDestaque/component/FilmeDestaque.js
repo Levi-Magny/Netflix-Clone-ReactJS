@@ -26,7 +26,8 @@ function FilmeDestaque({item}){
                     </div>
                     <div className="destaque--description">{item.overview}</div>
                     <div className="destaque--buttons">
-
+                        <a className="destaque--watchButton" href={`/watch/${item.id}`}>&#9658; Assistir</a>
+                        <a className="destaque--myListButton" href={`/list/add/${item.id}`}>&#x2b; Minha Lista</a>
                     </div>
                     <div className="destaque--genres">
                         <strong>Gêneros:</strong> {genres.join(', ')}
