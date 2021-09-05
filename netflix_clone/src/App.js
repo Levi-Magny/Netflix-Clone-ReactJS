@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import {getHomeList, getMovieInfo} from './Tmdb'
 import MovieRoll from './components/MovieRoll';
 import FilmeDestaque from './components/FilmeDestaque';
+import Header from './components/Header';
 import './App.css';
 
 function App() {
   const [movieList, setMovieList] = useState([]);
   const [dadosDestaques, setDadosDestaque] = useState(null);
+
+  const [headerBlack, setHeaderBlack] = useState(false);
   
   useEffect(()=>{
     const loadAll = async () => {
@@ -26,9 +29,26 @@ function App() {
     loadAll();
   },[]);
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if(window.scrollY > 10) {
+        setHeaderBlack(true);
+      } else {
+        setHeaderBlack(false);
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener);
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener);
+    }
+  },[])
+
   return (
     <div className="page">
       {/* Header */}
+      <Header black={headerBlack} />
       {/* Destaque */}
       {dadosDestaques && 
         <FilmeDestaque item={dadosDestaques}/>
