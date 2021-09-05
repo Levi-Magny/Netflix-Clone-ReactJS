@@ -14,8 +14,8 @@ function MovieRoll({title, items}){
                 <div className="movieRow--list">
                     {items.results.length > 0 && items.results.map((item, key) => {
                         return(
-                            <div className="movieRow--item">
-                                <img key={key} alt={item.original_title} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}/>
+                            <div key={key} className="movieRow--item">
+                                <img alt={item.original_title} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}/>
                             </div>
                         );
                     })}
