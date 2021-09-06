@@ -67,6 +67,11 @@ function App() {
         Direitos de imagem para <a rel="noreferrer" target="_blank" href="https://netflix.com/"><strong>Netflix</strong></a> <br/>
         Dados obtidos do site Themoviedb.org.
       </footer>
+      {movieList.length === 0 && 
+        <div className="loading">
+          <img src="https://media.wired.com/photos/592744d3f3e2356fd800bf00/master/w_2560%2Cc_limit/Netflix_LoadTime.gif" alt="carregando" />
+        </div>
+      }
     </div>
   );
 }

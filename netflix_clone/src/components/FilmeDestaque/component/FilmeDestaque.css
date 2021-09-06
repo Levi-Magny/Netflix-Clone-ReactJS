@@ -49,6 +49,12 @@
     font-size: 20px;
     color: #999;
     max-width: 40%;
+
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adicionando "..." ao final*/
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Quantidade de linhas*/
+    -webkit-box-orient: vertical;
 }
 
 .destaque--buttons {
