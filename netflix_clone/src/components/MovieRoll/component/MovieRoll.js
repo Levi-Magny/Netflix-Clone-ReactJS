@@ -8,40 +8,39 @@ import './MovieRoll.css'
  * @param { object } info_movies Objeto contendo o titulo da lista e os itens que vieram da API 
  * @returns Retorna um  component react que será uma lista contendo os filmes/séries dessa categoria
  */
-function MovieRoll({title, items}){
+function MovieRoll({ title, items }) {
     const [scrollX, setScrollX] = useState(0);
 
-    function handleLeftArrow(){
-        let x = scrollX + Math.round(window.innerWidth)/2; // pegando largura da tela
-        
-        if(x > 0){
+    function handleLeftArrow() {
+        let x = scrollX + Math.round(window.innerWidth) / 2; // pegando largura da tela
+
+        if (x > 0) {
             x = 0;
         }
 
         setScrollX(x);
     }
 
-    function handleRightArrow(){
-        let x = scrollX - Math.round(window.innerWidth)/2;
-        let length = -Math.round(window.innerWidth);
+    function handleRightArrow() {
+        let x = scrollX - Math.round(window.innerWidth) / 2;
+        let screenW = -Math.round(window.innerWidth);
+        let listW = -items.results.length * 150;
 
-        console.log(items.results.length)
-
-        if (x < length){
-            x = length;
+        if (x < (listW - screenW)) {
+            x = (listW - screenW) - 60;
         }
         setScrollX(x);
     }
 
-    return(
+    return (
         <div className="movieRow">
             <h2>{title}</h2>
 
             <div className="movieRow--left" onClick={handleLeftArrow}>
-                <NavigateBeforeIcon style={{fontSize: 50}} />
+                <NavigateBeforeIcon style={{ fontSize: 50 }} />
             </div>
             <div className="movieRow--right" onClick={handleRightArrow}>
-                <NavigateNextIcon style={{fontSize: 50}} />
+                <NavigateNextIcon style={{ fontSize: 50 }} />
             </div>
 
             <div className="movieRow--listarea">
@@ -50,9 +49,9 @@ function MovieRoll({title, items}){
                     width: items.results.length * 150
                 }}>
                     {items.results.length > 0 && items.results.map((item, key) => {
-                        return(
+                        return (
                             <div key={key} className="movieRow--item">
-                                <img alt={item.original_title} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}/>
+                                <img alt={item.original_title} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} />
                             </div>
                         );
                     })}

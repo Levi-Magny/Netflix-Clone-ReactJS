@@ -94,3 +94,28 @@
     font-size: 18px;
     color: #999
 }
+
+@media (max-Width: 760px){
+    .destaque {
+        height: 90vh;
+    }
+    .destaque--name {
+        font-size: 40px;
+    }
+    .destaque--info {
+        font-size: 16px;
+    }
+    .destaque--description {
+        font-size: 14px;
+        max-width: 100%;
+        margin-right: 30px;
+    }
+    .destaque--myListButton,
+    .destaque--watchButton {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .destaque--genres {
+        font-size: 14px;
+    }
+}
