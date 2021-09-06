@@ -62,6 +62,11 @@ function App() {
         })}
       </section>
       {/* Rodapé Basicão */}
+      <footer>
+        Feito por <a rel="noreferrer" target="_blank" href="https://github.com/Levi-Magny"><strong>Levi Magny</strong></a><br/>
+        Direitos de imagem para <a rel="noreferrer" target="_blank" href="https://netflix.com/"><strong>Netflix</strong></a> <br/>
+        Dados obtidos do site Themoviedb.org.
+      </footer>
     </div>
   );
 }
