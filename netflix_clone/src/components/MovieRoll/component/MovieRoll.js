@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import { ItemMovie } from '../../UI';
 import './MovieRoll.css'
 
 /**
@@ -32,6 +33,14 @@ function MovieRoll({ title, items }) {
         setScrollX(x);
     }
 
+    const modalEvent = (item)=>{
+        const openModal = new CustomEvent("openModal", {
+            detail: item
+        });
+
+        window.dispatchEvent(openModal);
+    }
+
     return (
         <div className="movieRow">
             <h2>{title}</h2>
@@ -50,9 +59,9 @@ function MovieRoll({ title, items }) {
                 }}>
                     {items.results.length > 0 && items.results.map((item, key) => {
                         return (
-                            <div key={key} className="movieRow--item">
+                            <ItemMovie key={key} onClick={modalEvent(item)}>
                                 <img alt={item.original_title} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} />
-                            </div>
+                            </ItemMovie>
                         );
                     })}
                 </div>

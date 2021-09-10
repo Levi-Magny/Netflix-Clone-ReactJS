@@ -3,6 +3,7 @@ import {getHomeList, getMovieInfo} from './Tmdb'
 import MovieRoll from './components/MovieRoll';
 import FilmeDestaque from './components/FilmeDestaque';
 import Header from './components/Header';
+import Modal from './components/Modal'
 import './App.css';
 
 function App() {
@@ -47,6 +48,8 @@ function App() {
 
   return (
     <div className="page">
+      {/* Modal */}
+      {/* <Modal/> */}
       {/* Header */}
       <Header black={headerBlack} />
       {/* Destaque */}

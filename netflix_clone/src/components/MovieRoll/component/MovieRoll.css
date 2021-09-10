@@ -8,27 +8,16 @@
 
 .movieRow--listarea {
     overflow-x: hidden;
+    overflow-x: scroll;
     padding-left: 30px;
+}
+
+.movieRow--listarea::-webkit-scrollbar {
+    display: none;
 }
 
 .movieRow--list {
     transition: all ease-out .4s;
-}
-
-.movieRow--item {
-    display: inline-block;
-    width: 150px;
-}
-
-.movieRow--item img {
-    width: 100%;
-    transform: scale(.9);
-    transition: ease .2s;
-}
-
-.movieRow--item img:hover {
-    transform: scale(1);
-    cursor: pointer;
 }
 
 .movieRow--left,
