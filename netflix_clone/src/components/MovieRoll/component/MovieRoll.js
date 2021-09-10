@@ -9,7 +9,7 @@ import './MovieRoll.css'
  * @param { object } info_movies Objeto contendo o titulo da lista e os itens que vieram da API 
  * @returns Retorna um  component react que será uma lista contendo os filmes/séries dessa categoria
  */
-function MovieRoll({ title, items }) {
+function MovieRoll({ title, items, onClickMovie }) {
     const [scrollX, setScrollX] = useState(0);
 
     function handleLeftArrow() {
@@ -33,14 +33,6 @@ function MovieRoll({ title, items }) {
         setScrollX(x);
     }
 
-    const modalEvent = (item)=>{
-        const openModal = new CustomEvent("openModal", {
-            detail: item
-        });
-
-        window.dispatchEvent(openModal);
-    }
-
     return (
         <div className="movieRow">
             <h2>{title}</h2>
@@ -59,7 +51,7 @@ function MovieRoll({ title, items }) {
                 }}>
                     {items.results.length > 0 && items.results.map((item, key) => {
                         return (
-                            <ItemMovie key={key} onClick={modalEvent(item)}>
+                            <ItemMovie key={key} onClick={() => { onClickMovie(item) }}>
                                 <img alt={item.original_title} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} />
                             </ItemMovie>
                         );

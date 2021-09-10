@@ -13,24 +13,45 @@ const ModalBack = styled.div`
     justify-content: center;
     overflow-y: hidden;
     overflow-y: scroll;
-    
 `;
 const OuterContainer = styled.div`
-    width: 40vw;
+    width: 50vw;
+    padding-top: 1rem;
 `;
 
-const Container = styled.div`
+const ContainerDetails = styled.div`
     background-color: #2f2f2f;
+    border-radius: 1rem;
     width: 100%;
 `;
+const ContainerCover = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 
-function Modal(){
+    img {
+        width: 100%;
+    }
+`;
+
+function Modal({detalhesFilme, onClose}){
+
+    const handleOutsideClick = (e)=>{
+        if(e.target.id === "ModalBack"){
+            onClose();
+        }
+    };
+
     return(
-        <ModalBack>
+        <ModalBack id="ModalBack" onClick={handleOutsideClick}>
             <OuterContainer>
-                <Container>
-                    <div></div>
-                </Container>
+                <ContainerDetails>
+                    <ContainerCover>
+                        {detalhesFilme.name || detalhesFilme.original_title}
+                        <img alt="Detalhes Imagem" src={`https://image.tmdb.org/t/p/original${detalhesFilme.backdrop_path}`}/>
+                    </ContainerCover>
+                </ContainerDetails>
             </OuterContainer>
         </ModalBack>
     );

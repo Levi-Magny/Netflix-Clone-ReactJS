@@ -3,12 +3,13 @@ import {getHomeList, getMovieInfo} from './Tmdb'
 import MovieRoll from './components/MovieRoll';
 import FilmeDestaque from './components/FilmeDestaque';
 import Header from './components/Header';
-// import Modal from './components/Modal';
+import Modal from './components/Modal';
 import './App.css';
 
 function App() {
   const [movieList, setMovieList] = useState([]);
   const [dadosDestaques, setDadosDestaque] = useState(null);
+  const [detalhes, setDetalhes] = useState({filme:{}, mostrar:false});
 
   const [headerBlack, setHeaderBlack] = useState(false);
   
@@ -46,30 +47,35 @@ function App() {
     }
   },[])
 
+  function onClickMovie(movie){
+    console.log(movie);
+    setDetalhes({filme:movie, mostrar:true});
+  };
+
   return (
     <div className="page">
-      {/* Modal */}
-      {/* <Modal/> */}
-      {/* Header */}
+      
       <Header black={headerBlack} />
-      {/* Destaque */}
+      
       {dadosDestaques && 
         <FilmeDestaque item={dadosDestaques}/>
       }
-      {/* Listas */}
+
+      {detalhes.mostrar && <Modal onClose={()=>{setDetalhes({filme:{}, mostrar:false})}} detalhesFilme={detalhes.filme}/>}
       <section className="lists">
         {movieList.map((item, key) => {
           return (
-            <MovieRoll key={key} title={item.title} items={item.items}/>
+            <MovieRoll key={key} title={item.title} items={item.items} onClickMovie={onClickMovie}/>
           );
         })}
       </section>
-      {/* Rodapé Basicão */}
+      
       <footer>
         Feito por <a rel="noreferrer" target="_blank" href="https://github.com/Levi-Magny"><strong>Levi Magny</strong></a><br/>
         Direitos de imagem para <a rel="noreferrer" target="_blank" href="https://netflix.com/"><strong>Netflix</strong></a> <br/>
         Dados obtidos do site Themoviedb.org.
       </footer>
+      
       {movieList.length === 0 && 
         <div className="loading">
           <img src="https://media.wired.com/photos/592744d3f3e2356fd800bf00/master/w_2560%2Cc_limit/Netflix_LoadTime.gif" alt="carregando" />
