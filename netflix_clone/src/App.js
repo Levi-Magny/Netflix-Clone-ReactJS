@@ -61,7 +61,13 @@ function App() {
         <FilmeDestaque item={dadosDestaques}/>
       }
 
-      {detalhes.mostrar && <Modal onClose={()=>{setDetalhes({filme:{}, mostrar:false})}} detalhesFilme={detalhes.filme}/>}
+      {detalhes.mostrar &&
+        <Modal
+          onClose={()=>{setDetalhes({filme:{}, mostrar:false})}}
+          detalhesFilme={detalhes.filme}
+        />
+      }
+      
       <section className="lists">
         {movieList.map((item, key) => {
           return (
