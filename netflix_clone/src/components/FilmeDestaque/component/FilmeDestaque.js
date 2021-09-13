@@ -1,5 +1,5 @@
 import React from 'react';
-import { DescriptionDestaque, NomeFilme, Info, Overview } from '../../UI/Detalhes';
+import { DescriptionDestaque, NomeFilme, Info, Overview, ButtonContainer, ButtonsDetalhes } from '../../UI/Detalhes';
 import './FilmeDestaque.css'
 
 function FilmeDestaque({item}){
@@ -26,10 +26,10 @@ function FilmeDestaque({item}){
                         <div className="destaque--seasons">{item.number_of_seasons} temporada{item.number_of_seasons > 1 && 's'}</div>
                     </Info>
                     <Overview className="destaque--description">{item.overview}</Overview>
-                    <div className="destaque--buttons">
-                        <a className="destaque--watchButton" href={`/watch/${item.id}`}>&#9658; Assistir</a>
-                        <a className="destaque--myListButton" href={`/list/add/${item.id}`}>&#x2b; Minha Lista</a>
-                    </div>
+                    <ButtonContainer>
+                        <ButtonsDetalhes primary href={`/watch/${item.id}`}>&#9658; Assistir</ButtonsDetalhes>
+                        <ButtonsDetalhes className="destaque--myListButton" href={`/list/add/${item.id}`}>&#x2b; Minha Lista</ButtonsDetalhes>
+                    </ButtonContainer>
                     <div className="destaque--genres">
                         <strong>Gêneros:</strong> {genres.join(', ')}
                     </div>

@@ -48,26 +48,29 @@ function App() {
   },[])
 
   function onClickMovie(movie){
-    console.log(movie);
+    // console.log(movie);
     setDetalhes({filme:movie, mostrar:true});
   };
 
   return (
     <div className="page">
-      
+      {/* Header */}
       <Header black={headerBlack} />
       
+      {/* Destaques */}
       {dadosDestaques && 
         <FilmeDestaque item={dadosDestaques}/>
       }
 
+      {/* Modal (quando usuário clicar em um filme) */}
       {detalhes.mostrar &&
         <Modal
           onClose={()=>{setDetalhes({filme:{}, mostrar:false})}}
           detalhesFilme={detalhes.filme}
         />
       }
-      
+
+      {/* Lista de Filmes por categoria */}
       <section className="lists">
         {movieList.map((item, key) => {
           return (
@@ -75,13 +78,15 @@ function App() {
           );
         })}
       </section>
-      
+
+      {/* Footer */}
       <footer>
         Feito por <a rel="noreferrer" target="_blank" href="https://github.com/Levi-Magny"><strong>Levi Magny</strong></a><br/>
         Direitos de imagem para <a rel="noreferrer" target="_blank" href="https://netflix.com/"><strong>Netflix</strong></a> <br/>
         Dados obtidos do site Themoviedb.org.
       </footer>
-      
+
+      {/* Gif para carregamento da página */}
       {movieList.length === 0 && 
         <div className="loading">
           <img src="https://media.wired.com/photos/592744d3f3e2356fd800bf00/master/w_2560%2Cc_limit/Netflix_LoadTime.gif" alt="carregando" />

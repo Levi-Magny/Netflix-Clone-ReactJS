@@ -1,5 +1,6 @@
-import React from 'react';
-import { DescriptionContainer, Info, NomeFilme, Overview } from '../../UI/Detalhes';
+import React, { useEffect, useState } from 'react';
+import { ButtonsDetalhes, ContainerButtonsModal, DescriptionContainer, Info, NomeFilme, Overview } from '../../UI/Detalhes';
+import { getMovieInfo } from '../../../Tmdb';
 import styled from 'styled-components';
 
 const ModalBack = styled.div`
@@ -42,6 +43,24 @@ const ContainerCover = styled.div`
 `;
 
 function Modal({detalhesFilme, onClose}){
+    const [movieInfos, setMovieInfos] = useState({});
+
+    useEffect(() => {
+        const loadInfos = async () =>{
+            let movieInfo = await (detalhesFilme.first_air_date ? getMovieInfo(detalhesFilme.id, 'tv') : getMovieInfo(detalhesFilme.id, 'movie'));
+            setMovieInfos(movieInfo);
+            console.log(movieInfo);
+        };
+        loadInfos();
+    }, [detalhesFilme.first_air_date, detalhesFilme.id]);
+
+    const convertMinToHours = (min)=>{
+        let minutes = parseInt(min);
+        let hours = Math.floor(minutes / 60);
+        let format = `${hours > 0 ? hours + 'h' : ''} ${minutes % 60}min`;
+
+        return format;
+    }
 
     const handleOutsideClick = (e)=>{
         if(e.target.id === "ModalBack"){
@@ -61,16 +80,18 @@ function Modal({detalhesFilme, onClose}){
             <OuterContainer>
                 <ContainerDetails>
                     <ContainerCover style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${detalhesFilme.backdrop_path})`}}>
-                        <div className="blur" >
-                            {/* <img alt="Detalhes Imagem" src={`https://image.tmdb.org/t/p/original${detalhesFilme.backdrop_path}`}/> */}
-                        </div>
+                        <div className="blur" ></div>
                     </ContainerCover>
                     <DescriptionContainer modal>
-                        <NomeFilme modal>{detalhesFilme.name || detalhesFilme.original_title}</NomeFilme>
+                        <NomeFilme modal>{detalhesFilme.name || detalhesFilme.title || detalhesFilme.original_title}</NomeFilme>
+                        <ContainerButtonsModal>
+                            <ButtonsDetalhes primary href={`/watch/${detalhesFilme.id}`}>&#9658; Assistir</ButtonsDetalhes>
+                        </ContainerButtonsModal>
                         <Info>
                             <div className="destaque--points">{detalhesFilme.vote_average} pontos</div>
                             <div className="destaque--year">{firstDate.getFullYear()}</div>
-                            {detalhesFilme.number_of_seasons && <div className="destaque--seasons">{detalhesFilme.number_of_seasons} temporada{detalhesFilme.number_of_seasons > 1 && 's'}</div>}
+                            {movieInfos.number_of_seasons && <div className="destaque--seasons">{movieInfos.number_of_seasons} temporada{movieInfos.number_of_seasons > 1 && 's'}</div>}
+                            {movieInfos.runtime && <div className="destaque--seasons">{convertMinToHours(movieInfos.runtime)}</div>}
                         </Info>
                         <Overview modal>{detalhesFilme.overview}</Overview>
                     </DescriptionContainer>
