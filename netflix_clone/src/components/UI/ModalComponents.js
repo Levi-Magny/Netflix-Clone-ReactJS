@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const fundo = "#181818";
-const card = "#2f2f2f";
+// const card = "#2f2f2f";
 
 export const ModalBack = styled.div`
     width: 100%;

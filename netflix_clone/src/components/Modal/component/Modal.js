@@ -11,7 +11,7 @@ function Modal({detalhesFilme, onClose}){
         const loadInfos = async () =>{
             let movieInfo = await (detalhesFilme.first_air_date ? getMovieInfo(detalhesFilme.id, 'tv') : getMovieInfo(detalhesFilme.id, 'movie'));
             setMovieInfos(movieInfo);
-            console.log(movieInfo);
+            // console.log(movieInfo);
         };
         loadInfos();
     }, [detalhesFilme.first_air_date, detalhesFilme.id]);
