@@ -11,6 +11,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+body.hideOverflow {
+  overflow: hidden !important;
+}
+
 .lists {
   margin-top: -150px;
 }

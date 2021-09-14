@@ -50,7 +50,13 @@ function App() {
   function onClickMovie(movie){
     // console.log(movie);
     setDetalhes({filme:movie, mostrar:true});
+    document.body.classList.add("hideOverflow")
   };
+
+  function onCloseModal(){
+    setDetalhes({filme:{}, mostrar:false});
+    document.body.classList.remove("hideOverflow");
+  }
 
   return (
     <div className="page">
@@ -65,7 +71,7 @@ function App() {
       {/* Modal (quando usuário clicar em um filme) */}
       {detalhes.mostrar &&
         <Modal
-          onClose={()=>{setDetalhes({filme:{}, mostrar:false})}}
+          onClose={onCloseModal}
           detalhesFilme={detalhes.filme}
         />
       }

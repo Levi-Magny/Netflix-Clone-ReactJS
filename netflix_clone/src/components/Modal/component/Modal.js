@@ -1,46 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ButtonsDetalhes, ContainerButtonsModal, DescriptionContainer, Info, NomeFilme, Overview } from '../../UI/Detalhes';
 import { getMovieInfo } from '../../../Tmdb';
-import styled from 'styled-components';
+import { ModalBack, OuterContainer, ContainerDetails, ContainerCover } from '../../UI/ModalComponents';
 
-const ModalBack = styled.div`
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0,0,0,.7);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2000;
-    display: flex;
-    justify-content: center;
-    overflow-y: hidden;
-    overflow-y: scroll;
-`;
-const OuterContainer = styled.div`
-    width: 50vw;
-    padding-top: 2rem;
-`;
-
-const ContainerDetails = styled.div`
-    background-color: #2f2f2f;
-    border-radius: .5rem;
-    width: 100%;
-`;
-const ContainerCover = styled.div`
-    border-radius: inherit;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    background-size: cover;
-    height: 65vh;
-
-    .blur {
-        height: inherit;
-        background: linear-gradient(to top, #2f2f2f 7%, transparent 90%);
-        width: 100%;
-    }
-`;
 
 function Modal({detalhesFilme, onClose}){
     const [movieInfos, setMovieInfos] = useState({});
