@@ -19,9 +19,14 @@ export const ModalBack = styled.div`
 export const OuterContainer = styled.div`
     width: 50vw;
     padding-top: 2rem;
+
+    @media (max-Width: 760px){
+        width: 90vw;
+    }
 `;
 
 export const ContainerDetails = styled.div`
+    position: relative;
     background-color: ${fundo};
     border-radius: .5rem;
     width: 100%;
@@ -39,5 +44,25 @@ export const ContainerCover = styled.div`
         height: inherit;
         background: linear-gradient(to top, ${fundo} 7%, transparent 90%);
         width: 100%;
+    }
+`;
+export const BotaoFecharModal = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    padding: 2px;
+    background-color: ${fundo};
+    cursor: pointer;
+    opacity: .9;
+    
+    img {
+        width: 36px;
     }
 `;

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ButtonsDetalhes, ContainerButtonsModal, DescriptionContainer, Info, NomeFilme, Overview } from '../../UI/Detalhes';
 import { getMovieInfo } from '../../../Tmdb';
-import { ModalBack, OuterContainer, ContainerDetails, ContainerCover } from '../../UI/ModalComponents';
+import { ModalBack, OuterContainer, ContainerDetails, ContainerCover, BotaoFecharModal } from '../../UI/ModalComponents';
+import CloseIcon from '../../../assets/images/CloseIcon.svg'
 
 
 function Modal({detalhesFilme, onClose}){
@@ -42,7 +43,11 @@ function Modal({detalhesFilme, onClose}){
             <OuterContainer>
                 <ContainerDetails>
                     <ContainerCover style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${detalhesFilme.backdrop_path})`}}>
-                        <div className="blur" ></div>
+                        <div className="blur" >
+                            <BotaoFecharModal onClick={() => {onClose()}}>
+                                <img src={CloseIcon} alt="Fechar modal"/>
+                            </BotaoFecharModal>
+                        </div>
                     </ContainerCover>
                     <DescriptionContainer modal>
                         <NomeFilme modal>{detalhesFilme.name || detalhesFilme.title || detalhesFilme.original_title}</NomeFilme>
