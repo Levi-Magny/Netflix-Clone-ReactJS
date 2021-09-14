@@ -38,6 +38,7 @@ export const ContainerCover = styled.div`
     align-items: center;
     justify-content: space-around;
     background-size: cover;
+    background-position-x: center;
     height: 65vh;
 
     .blur {
