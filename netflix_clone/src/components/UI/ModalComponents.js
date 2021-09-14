@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const fundo = "#181818";
-// const card = "#2f2f2f";
+const card = "#2f2f2f";
 
 export const ModalBack = styled.div`
     width: 100%;
@@ -47,6 +47,7 @@ export const ContainerCover = styled.div`
         width: 100%;
     }
 `;
+
 export const BotaoFecharModal = styled.div`
     display: flex;
     align-items: center;
@@ -65,5 +66,50 @@ export const BotaoFecharModal = styled.div`
     
     img {
         width: 36px;
+    }
+`;
+
+export const ContainerSemelhantes = styled.div`
+    box-sizing: inherit;
+    background-color: ${fundo};
+`;
+
+export const ContainerSemelhantesItens = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+    align-items: stretch;
+    justify-items: stretch;
+`;
+export const CardContainer = styled.div`
+    margin: .1em;
+    height: 100%;
+    min-height: 22em;
+    cursor: pointer;
+    flex: 0 0 40%;
+    position: relative;
+    overflow: hidden;
+    border-radius: .25em;
+    background-color: ${card};
+
+    .img-Wrapper {
+        position: relative;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            display: block;
+            border: 0;
+        }
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 16px;
+        margin: 0;
+        line-height: 1.2;
     }
 `;

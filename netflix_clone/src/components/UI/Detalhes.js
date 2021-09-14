@@ -6,8 +6,8 @@ export const DescriptionContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     padding-left: 30px;
-    padding-right: ${props => (props.modal ? "15px" : "0")};
-    padding-bottom: ${props => (props.modal ? "60px" : "150px")};
+    padding-right: ${props => (props.modal ? "30px" : "0")};
+    padding-bottom: ${props => (props.modal ? "30px" : "150px")};
     padding-top: ${props => (props.modal ? "10px" : "70px")};
 `;
 
@@ -28,7 +28,6 @@ export const NomeFilme = styled.div`
 
 export const Info = styled.div`
     font-size: 18px;
-    font-weight: bold;
     margin-top: 15px;
 
     .destaque--year,
@@ -36,6 +35,10 @@ export const Info = styled.div`
     .destaque--seasons {
         display: inline-block;
         margin-right: 15px;
+    }
+
+    .destaque--points {
+        font-weight: bold;
     }
 
     .destaque--points {

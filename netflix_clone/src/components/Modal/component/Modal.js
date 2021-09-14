@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { ButtonsDetalhes, ContainerButtonsModal, DescriptionContainer, Info, NomeFilme, Overview } from '../../UI/Detalhes';
 import { getMovieInfo } from '../../../Tmdb';
-import { ModalBack, OuterContainer, ContainerDetails, ContainerCover, BotaoFecharModal } from '../../UI/ModalComponents';
+import { ModalBack, OuterContainer, ContainerDetails, ContainerCover, BotaoFecharModal, ContainerSemelhantes, ContainerSemelhantesItens, CardContainer } from '../../UI/ModalComponents';
 import CloseIcon from '../../../assets/images/CloseIcon.svg'
+import { Title } from '../../UI';
 
 
 function Modal({detalhesFilme, onClose}){
@@ -61,6 +62,20 @@ function Modal({detalhesFilme, onClose}){
                             {movieInfos.runtime && <div className="destaque--seasons">{convertMinToHours(movieInfos.runtime)}</div>}
                         </Info>
                         <Overview modal>{detalhesFilme.overview}</Overview>
+                        <ContainerSemelhantes>
+                            <Title modal>Títulos Semelhantes</Title>
+                            <ContainerSemelhantesItens>
+                                <CardContainer>
+                                    <div className="img-Wrapper">
+                                        <img alt="title cover" src={`https://image.tmdb.org/t/p/original${detalhesFilme.backdrop_path}`}/>
+                                    </div>
+                                    <Info className="info">
+                                        <div className="destaque--points">7 pontos</div>
+                                        <div className="destaque--year">2021</div>
+                                    </Info>
+                                </CardContainer>
+                            </ContainerSemelhantesItens>
+                        </ContainerSemelhantes>
                     </DescriptionContainer>
                 </ContainerDetails>
             </OuterContainer>

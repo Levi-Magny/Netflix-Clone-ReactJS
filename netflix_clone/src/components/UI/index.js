@@ -15,3 +15,6 @@ export const ItemMovie = styled.div`
         cursor: pointer;
     }
 `;
+export const Title = styled.h2`
+    margin: ${props => (!props.modal ? '0px' : '30px')} 0px ${props => (!props.modal ? '0px' : '20px')} ${props => (!props.modal ? '30px' : '0px')};
+`; 

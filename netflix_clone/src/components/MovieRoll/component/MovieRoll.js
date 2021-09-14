@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import { ItemMovie } from '../../UI';
+import { ItemMovie, Title } from '../../UI';
 import './MovieRoll.css'
 
 /**
@@ -35,7 +35,7 @@ function MovieRoll({ title, items, onClickMovie }) {
 
     return (
         <div className="movieRow">
-            <h2>{title}</h2>
+            <Title>{title}</Title>
 
             <div className="movieRow--left" onClick={handleLeftArrow}>
                 <NavigateBeforeIcon style={{ fontSize: 50 }} />
