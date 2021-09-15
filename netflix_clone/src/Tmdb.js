@@ -36,6 +36,24 @@ async function getMovieInfo(movieId, type){
     return info;
 }
 
+async function getSimilarTitles(movieId, type){
+    let info = {};
+
+    if(movieId){
+        switch(type){
+            case 'movie':
+                info = await basicFetch(`/movie/${movieId}/similar?language=pt-BR&api_key=${API_KEY}`);
+                break;
+            case 'tv':
+                info = await basicFetch(`/tv/${movieId}/similar?language=pt-BR&api_key=${API_KEY}`);
+                break;
+            default:
+                info = null;
+        }
+    }
+    return info;
+}
+
 async function getHomeList(){
     return [
         {
@@ -81,4 +99,4 @@ async function getHomeList(){
     ]
 }
 
-export {getHomeList, getMovieInfo};
+export {getHomeList, getMovieInfo, getSimilarTitles};

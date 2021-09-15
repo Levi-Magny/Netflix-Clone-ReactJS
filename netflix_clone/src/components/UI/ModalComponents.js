@@ -149,8 +149,9 @@ export const CardContainer = styled.div`
     }
 
     .CarDesc {
-        margin: 0;
-        padding: 0 16px 16px 16px;
+        margin: 0 0 16px 0;
+        -webkit-line-clamp: 4;
+        padding: 0 16px 0px 16px;
     }
 `;
 

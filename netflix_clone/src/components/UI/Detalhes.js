@@ -56,7 +56,7 @@ export const Overview = styled.div`
     color: #999;
     max-width: ${props => (props.modal ? "100%" : "40%")};
 
-    overflow: hidden;
+    overflow-y: hidden;
     text-overflow: ellipsis; /* Adicionando "..." ao final*/
     display: -webkit-box;
     -webkit-line-clamp: 5; /* Quantidade de linhas*/
