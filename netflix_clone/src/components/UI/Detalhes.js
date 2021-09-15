@@ -54,7 +54,7 @@ export const Overview = styled.div`
     margin-top: 15px;
     font-size: ${props => (props.modal ? "16px" : "20px")};
     color: #999;
-    max-width: ${props => (props.modal ? "85%" : "40%")};
+    max-width: ${props => (props.modal ? "100%" : "40%")};
 
     overflow: hidden;
     text-overflow: ellipsis; /* Adicionando "..." ao final*/

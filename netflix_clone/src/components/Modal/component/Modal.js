@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { ButtonsDetalhes, ContainerButtonsModal, DescriptionContainer, Info, NomeFilme, Overview } from '../../UI/Detalhes';
 import { getMovieInfo } from '../../../Tmdb';
-import { ModalBack, OuterContainer, ContainerDetails, ContainerCover, BotaoFecharModal, ContainerSemelhantes, ContainerSemelhantesItens, CardContainer } from '../../UI/ModalComponents';
-import CloseIcon from '../../../assets/images/CloseIcon.svg'
+import { ModalBack, OuterContainer, ContainerDetails, ContainerCover, BotaoFecharModal, ContainerSemelhantes, ContainerSemelhantesItens, CardContainer, MetaData, BotaoRedondo } from '../../UI/ModalComponents';
+import CloseIcon from '../../../assets/images/CloseIcon.svg';
+import AddIcon from '@material-ui/icons/Add';
 import { Title } from '../../UI';
 
 
@@ -69,10 +70,15 @@ function Modal({detalhesFilme, onClose}){
                                     <div className="img-Wrapper">
                                         <img alt="title cover" src={`https://image.tmdb.org/t/p/original${detalhesFilme.backdrop_path}`}/>
                                     </div>
-                                    <Info className="info">
-                                        <div className="destaque--points">7 pontos</div>
-                                        <div className="destaque--year">2021</div>
-                                    </Info>
+                                    <h3>La la land</h3>
+                                    <MetaData>
+                                        <Info className="info">
+                                            <div className="destaque--points">7 pontos</div>
+                                            <div className="destaque--year">2021</div>
+                                        </Info>
+                                        <BotaoRedondo><AddIcon/></BotaoRedondo>
+                                    </MetaData>
+                                    <Overview className="CarDesc" modal>Entediado com a vida nas trevas, o diabo se muda para Los Angeles, abre um piano-bar e empresta sua sabedoria a uma investigadora de assassinatos.</Overview>
                                 </CardContainer>
                             </ContainerSemelhantesItens>
                         </ContainerSemelhantes>

@@ -17,7 +17,8 @@ export const ModalBack = styled.div`
     overflow-y: scroll;
 `;
 export const OuterContainer = styled.div`
-    width: 50vw;
+    width: 70vw;
+    max-width: 850px;
     padding-top: 2rem;
 
     @media (max-Width: 760px){
@@ -69,6 +70,27 @@ export const BotaoFecharModal = styled.div`
     }
 `;
 
+export const BotaoRedondo = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 42px;
+    max-height: 42px;
+    border-radius: 50%;
+    background-color: #14141422;
+    border: 2px solid #FFF8;
+    color: #FFF;
+    padding: 0.3em;
+    cursor: pointer;
+    outline: none;
+
+    :hover{
+        border-color: #FFFE;
+    }
+`;
+
 export const ContainerSemelhantes = styled.div`
     box-sizing: inherit;
     background-color: ${fundo};
@@ -80,6 +102,12 @@ export const ContainerSemelhantesItens = styled.div`
     grid-gap: 1em;
     align-items: stretch;
     justify-items: stretch;
+    @media (max-Width: 440px){
+        grid-template-columns: 1fr;
+    }
+    @media (min-width: 441px) and (max-Width: 740px){
+        grid-template-columns: repeat(2, 1fr);
+    }
 `;
 export const CardContainer = styled.div`
     margin: .1em;
@@ -108,8 +136,27 @@ export const CardContainer = styled.div`
         align-items: flex-start;
         justify-content: center;
         flex-wrap: wrap;
-        padding: 16px;
         margin: 0;
         line-height: 1.2;
+        .destaque--year {
+            margin-top: 5px;
+            font-size: 16px;
+        }
     }
+
+    h3 {
+        margin: 16px 0 0 16px;
+    }
+
+    .CarDesc {
+        margin: 0;
+        padding: 0 16px 16px 16px;
+    }
+`;
+
+export const MetaData = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
 `;
