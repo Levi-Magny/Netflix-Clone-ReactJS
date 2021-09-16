@@ -31,7 +31,7 @@ function Semelhantes({ movieId, type }) {
                         <h3>{item.title || item.original_name}</h3>
                         <MetaData>
                             <Info className="info">
-                                <div className="destaque--points">{parseFloat(item.vote_average).toFixed(1)}</div>
+                                <div className="destaque--points">{parseFloat(item.vote_average).toFixed(1)} ponto{item.vote_average !== '1' && 's'}</div>
                                 <div className="destaque--year">{date(item.first_air_date || item.release_date)}</div>
                             </Info>
                             <BotaoRedondo><AddIcon /></BotaoRedondo>
