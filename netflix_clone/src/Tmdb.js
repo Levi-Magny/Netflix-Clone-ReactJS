@@ -42,10 +42,10 @@ async function getSimilarTitles(movieId, type){
     if(movieId){
         switch(type){
             case 'movie':
-                info = await basicFetch(`/movie/${movieId}/similar?language=pt-BR&api_key=${API_KEY}`);
+                info = await basicFetch(`/movie/${movieId}/similar?with_network=213&language=pt-BR&api_key=${API_KEY}`);
                 break;
             case 'tv':
-                info = await basicFetch(`/tv/${movieId}/similar?language=pt-BR&api_key=${API_KEY}`);
+                info = await basicFetch(`/tv/${movieId}/similar?with_network=213&language=pt-BR&api_key=${API_KEY}`);
                 break;
             default:
                 info = null;
