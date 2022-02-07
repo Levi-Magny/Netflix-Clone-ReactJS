@@ -1,5 +1,6 @@
 import React from 'react';
 import { DescriptionDestaque, NomeFilme, Info, Overview, ButtonContainer, ButtonsDetalhes } from '../../UI/Detalhes';
+import { ContainerFullScreen } from '../../UI';
 import './FilmeDestaque.css'
 
 function FilmeDestaque({item}){
@@ -12,10 +13,8 @@ function FilmeDestaque({item}){
     }
 
     return(
-        <section className="destaque" style={{
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundImage: `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`
+        <ContainerFullScreen style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`,
         }}>
             <div className="destaque--vertical">
                 <DescriptionDestaque>
@@ -35,7 +34,7 @@ function FilmeDestaque({item}){
                     </div>
                 </DescriptionDestaque>
             </div>
-        </section>
+        </ContainerFullScreen>
     );
 }
 

@@ -1,4 +1,4 @@
-header {
+/* header {
     position: fixed;
     z-index: 999;
     top: 0;
@@ -15,8 +15,7 @@ header {
 
 header.black {
     background-color: #141414;
-}
-
+} 
 .header--logo {
     height: 30px;
 }
@@ -24,6 +23,7 @@ header.black {
 .header--logo img {
     height: 100%;
 }
+*/
 
 .header--user {
     height: 35px;

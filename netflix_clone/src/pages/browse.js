@@ -58,7 +58,7 @@ export default function Browse() {
     }
   
     return (
-      <div className="page">
+      <div >
         {/* Header */}
         <Header black={headerBlack} />
         
