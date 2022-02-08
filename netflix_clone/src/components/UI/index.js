@@ -131,6 +131,10 @@ export const HomeFormContainer = styled.div`
     flex-direction: row;
     margin: 0 auto;
     text-align: center;
+
+    @media (max-width: 756px) {
+        flex-wrap: wrap;
+    }
 `;
 
 export const FormTitle = styled.h3`
@@ -150,6 +154,12 @@ export const HomeInput = styled.input`
 
     &:focus {
         border: solid 1px #46d369;
+    }
+
+    @media (max-width: 950px) {
+        height: 60px;
+        font-size: 1rem;
+        min-width: 200px;
     }
 `;
 
@@ -171,4 +181,14 @@ export const HomeButton = styled.button`
     -webkit-box-orient: horizontal;
     flex-direction: row;
     cursor: pointer;
+
+    @media (max-width: 950px) {
+        height: 60px;
+        font-size: 1rem;
+        min-width: 110px;
+    }
+    @media (max-width: 756px) {
+        border-radius: 3px;
+        margin-top: 5px;
+    }
 `;
