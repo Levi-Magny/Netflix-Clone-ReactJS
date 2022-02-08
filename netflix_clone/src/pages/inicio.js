@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import homeImage from'../assets/images/Tela-Login.jpg'
 import { HeaderContainer, ContainerFullScreen, Shadows, EnterButton, HomeContainer, HomeHead, FormContainer, HomeSubhead, FormTitle, HomeFormContainer, HomeInput, HomeButton } from "../components/UI";
 
