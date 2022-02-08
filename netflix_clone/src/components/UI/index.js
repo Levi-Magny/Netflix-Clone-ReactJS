@@ -64,4 +64,111 @@ export const Shadows = styled.div`
     bottom: 0;
     right: 0;
     left: 0;
+    z-index: 1;
+`;
+
+export const EnterButton = styled.a`
+    font-size: 1rem;
+    background-color: #e50914;
+    padding: 0.4rem 1rem;
+    border-radius: .2rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 400;
+`;
+
+export const HomeContainer = styled.div`
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem 0;
+    width: 100%;
+    height: 100%;
+`;
+
+export const FormContainer = styled.div`
+    padding: 0 20%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @media (max-width: 950px) {
+        padding: 0 10%;
+    }
+`;
+
+export const HomeHead = styled.h1`
+    z-index: 4;
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 3.8rem;
+    margin: 0;
+    text-align: center;
+    
+    @media (max-width: 950px) {
+        font-size: 2rem;
+    }
+`;
+
+export const HomeSubhead = styled.h2`
+    font-size: 1.625rem;
+    z-index: 4;
+    margin: 10px 0;
+    font-weight: 100;
+    text-align: center;
+
+    @media (max-width: 950px) {
+        font-size: 1.125rem;
+    }
+`;
+
+export const HomeFormContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    text-align: center;
+`;
+
+export const FormTitle = styled.h3`
+    text-align: center;
+    font-weight: 100;
+`;
+
+export const HomeInput = styled.input`
+    height: 80px;
+    width: 100%;
+    min-width: 500px;
+    outline: none;
+    padding: 0 10px;
+    font-size: 1rem;
+    border: solid 2px #333;
+    border-radius: 3px 0 0 3px;
+
+    &:focus {
+        border: solid 1px #46d369;
+    }
+`;
+
+export const HomeButton = styled.button`
+    height: 80px;
+    padding: 0 1em;
+    background-color: #e50914;
+    outline: none;
+    border: solid 1px #333;
+    border-left: 0;
+    border-radius: 0 3px 3px 0;
+    font-size: 1.875rem;
+    font-weight: 400;
+    color: #fff;
+    display: inline-flex;
+    min-width: 200px;
+    align-items: center;
+    margin: 0 auto;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+    cursor: pointer;
 `;
