@@ -1,6 +1,6 @@
 import React from 'react';
 import homeImage from'../assets/images/Tela-Login.jpg';
-import { HeaderContainer, ContainerFullScreen, Shadows, FormContainer } from "../components/UI";
+import { HeaderContainer, ContainerFullScreen, Shadows, FormContainer, EnterButton } from "../components/UI";
 import { FormH1, FormInput, FormLoginContainer } from '../components/UI/Forms';
 
 function Login() {
@@ -18,9 +18,16 @@ function Login() {
             }}>
                 <FormContainer>
                     <FormLoginContainer>
-                        <FormH1>Entrar</FormH1>
-                        <FormInput placeholder={'Email'} type={'email'} name={'email'}/>
-                        <FormInput placeholder={'Senha'} type={'password'} name={'password'}/>
+                        <form 
+                            onSubmit={(event)=>{
+                                event.preventDefault();
+                            }}
+                        >
+                            <FormH1>Entrar</FormH1>
+                            <FormInput placeholder={'Email'} type={'email'} name={'email'}/>
+                            <FormInput placeholder={'Senha'} type={'password'} name={'password'}/>
+                            <EnterButton className='form' type={'submit'} name={'entrar'}>Entrar</EnterButton>
+                        </form>
                     </FormLoginContainer>
                 </FormContainer>
                 <Shadows />

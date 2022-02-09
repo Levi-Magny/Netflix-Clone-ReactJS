@@ -76,6 +76,20 @@ export const EnterButton = styled.a`
     text-decoration: none;
     color: #FFFFFF;
     font-weight: 400;
+
+    &.form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 100%;
+        min-width: 314px;
+        padding: 0 16px;
+        outline: none;
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin: 24px 0 12px;
+    }
 `;
 
 export const HomeContainer = styled.div`

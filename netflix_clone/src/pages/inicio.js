@@ -12,7 +12,7 @@ function Inicio() {
                         <img alt="logo" src="https://logodownload.org/wp-content/uploads/2014/10/netflix-logo-5.png"/>
                     </a>
                 </div>
-                <EnterButton href={'/browse'}>Entrar</EnterButton>
+                <EnterButton href={'/login'}>Entrar</EnterButton>
             </HeaderContainer>
             <ContainerFullScreen style={{
                 backgroundImage: `url(${homeImage})`
