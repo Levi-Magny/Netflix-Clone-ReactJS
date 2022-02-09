@@ -7,7 +7,7 @@ export const FormLoginContainer = styled.div`
     flex-direction: column;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    min-height: 660px;
+    min-height: 500px;
     max-width: 450px;
     padding: 60px 68px 40px;
     margin-top: 80px;

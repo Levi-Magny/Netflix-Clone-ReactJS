@@ -145,6 +145,7 @@ export const HomeFormContainer = styled.div`
     flex-direction: row;
     margin: 0 auto;
     text-align: center;
+    align-items: center;
 
     @media (max-width: 756px) {
         flex-wrap: wrap;
@@ -204,5 +205,21 @@ export const HomeButton = styled.button`
     @media (max-width: 756px) {
         border-radius: 3px;
         margin-top: 5px;
+    }
+`;
+
+export const FlexDiv = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+
+    & > p {
+        margin-right: 5px;
+        color: #8c8c8c;
+    }
+    & > a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 400;
     }
 `;
