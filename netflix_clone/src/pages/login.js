@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import homeImage from'../assets/images/Tela-Login.jpg';
 import { HeaderContainer, ContainerFullScreen, Shadows, FormContainer, EnterButton, HomeFormContainer, FlexDiv } from "../components/UI";
 import { FormH1, FormInput, FormLoginContainer } from '../components/UI/Forms';
+import { GeneralContext } from '../context/LoginContext';
 
 function Login() {
+    const { validarEmail } = useContext(GeneralContext);
+    const [email, setEmail] = useState('');
+    const [emailWarning, setEmailWarning] = useState({});
     return(
         <>
             <HeaderContainer>
@@ -24,7 +28,19 @@ function Login() {
                             }}
                         >
                             <FormH1>Entrar</FormH1>
-                            <FormInput placeholder={'Email'} type={'email'} name={'email'}/>
+                            <FormInput
+                                placeholder={'Email'}
+                                type={'email'}
+                                name={'email'}
+                                value={email}
+                                onChange={(event)=>{
+                                    setEmail(event.target.value);
+                                }}
+                                onBlur={()=>{
+                                    setEmailWarning(validarEmail(email));
+                                }}
+                            />
+                            {emailWarning.valido && <span style={{color: 'red', marginBottom: '5px'}}>{emailWarning.message}</span>}
                             <FormInput placeholder={'Senha'} type={'password'} name={'password'}/>
                             <EnterButton className='form' type={'submit'} name={'entrar'}>Entrar</EnterButton>
                             <HomeFormContainer>
@@ -33,7 +49,7 @@ function Login() {
                             </HomeFormContainer>
                             <FlexDiv>
                                 <p>Novo por Aqui?</p>
-                                <a href='/'>Assine agora</a>
+                                <a href='/signup'>Assine agora</a>
                             </FlexDiv>
                         </form>
                     </FormLoginContainer>
